@@ -1,0 +1,388 @@
+<html>
+	<head>
+		<title>FAQ's - goGlamrs</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js" type="text/javascript"></script>
+		<script>
+			$(document).ready(function(){
+					$(window).scroll(function(){
+						var y = $(this).scrollTop();
+						var windowsize = $(window).width();
+						if((y > 50)&&(windowsize>1200)){
+							$("#divTopRow").css("padding","0px");
+							$("#divTopRow").css("position","fixed");
+							$("#divTopRow").css("top","0");
+							$("#divTopRow").css("width","100%");
+							$("#divTopleftStrip").css("padding","0px");
+							$("#imgTopLogoLong").hide();
+							$("#imgTopLogoShort").show();
+						}
+						else if((y > 50)&&(windowsize<1200)){
+							$("#divTopRow").css("padding","10px");
+							$("#divTopRow").css("position","fixed");
+							$("#divTopRow").css("top","0");
+							$("#divTopRow").css("width","100%");
+							$("#imgTopLogoLong").hide();
+							$("#imgTopLogoShort").show();
+							$("#imgTopMenuButton").css("padding","10px");
+						}
+						else{
+							$("#divTopRow").css("padding-top","1%");
+							$("#divTopRow").css("padding-left","0");
+							$("#divTopRow").css("padding-right","0");
+							$("#divTopRow").css("padding-bottom","1%");
+							$("#divTopRow").css("position","absolute");
+							$("#divTopleftStrip").css("padding-left","10px");
+							$("#divTopleftStrip").css("padding-top","1%");
+							$("#imgTopLogoLong").show();
+							$("#imgTopLogoShort").hide();
+							$("#imgTopMenuButton").css("padding","20px");
+						}
+					});
+					$(window).resize(function() {
+						var windowsize = $(window).width();
+						if (windowsize < 1150) {
+							$("#divTopMenuButton").show();
+							$("#divTopleftStrip").hide();
+						}
+						else{
+							$("#divTopleftStrip").show();
+							$("#divTopMenuButton").hide();
+						}
+						if (windowsize < 800){
+							$("#divCopyRightlong").hide();
+							$("#divCopyRightShort").show();
+						}
+						else{
+							$("#divCopyRightlong").show();
+							$("#divCopyRightShort").hide();
+						}
+						setTopDivAndImage();
+					});
+					$(window).load(function() {
+						$(this).resize();
+					});
+					var a=-1;
+					function setTopDivAndImage(){
+						var windowsize = $(window).width();
+						var h=$("#divTopRow").height();
+						var p=$("#divTopRow").css("padding-top").substring(0,2);
+						$("#topwrapper").css("height",h+(2*parseInt(p)));
+					}
+					$("#imgTopMenuButton").on({
+						mouseenter: function(){
+							$(this).css("opacity","1");
+						},
+						mouseleave: function(){
+							$(this).css("opacity",".7");
+						}
+					});
+					$(".liTopRighttHeaderItem").on({
+						mouseenter: function(){
+							$(this).css("opacity","1");
+						},
+						mouseleave: function(){
+							$(this).css("opacity",".8");
+						}
+					});
+					$(".liTopLeftPannelElements a").on({
+						mouseenter: function(){
+							$(this).css("color","rgb(204, 0, 0)");
+						},
+						mouseleave: function(){
+							$(this).css("color","rgb(0, 0, 0)");
+						}
+					});
+					$("#aBookNow").on({
+						mouseenter: function(){
+							$(this).css("color","rgb(204, 0, 0)");
+							$(this).css("background-color","rgb(250, 250, 250)");
+						},
+						mouseleave: function(){
+							$(this).css("color","rgb(255,255,255)");
+							$(this).css("background-color","rgb(204, 0, 0)");
+						}
+					});
+					$("#divTopMenuButton").on({
+						mouseleave: function(){
+							$(".liTopRighttHeaderItem").hide();
+						}
+					});
+					$("#imgTopMenuButton").click(function(){
+						$(".liTopRighttHeaderItem").toggle();
+					});
+					$(".divQuestion").on({
+						mouseenter: function(){
+							$(this).css("color","rgb(204,0,0)");
+							var id=$(this).attr("id");
+							var idDesc="#"+id+"Img";
+							$(idDesc).attr("src", "Pics/PlusFilled.png");
+						},
+						mouseleave: function(){
+							var id=$(this).attr("id");
+							var idDesc="#"+id+"Desc";
+							if(!$(idDesc).is(':visible')){
+								$(this).css("color","rgb(0,0,0)");
+								var id=$(this).attr("id");
+								var idImg="#"+id+"Img";
+								$(idImg).attr("src", "Pics/PlusNormal.png");
+							}
+						}
+					});
+					$(".divQuestion").click(function(){
+						$(".pAnswers").hide();
+						$(".imgQuestion").attr("src", "Pics/PlusNormal.png");
+						$(".divQuestion").css("color","rgb(0,0,0)");
+						var id=$(this).attr("id");
+						var idDesc="#"+id+"Desc";
+						$(this).css("color","rgb(204,0,0)");
+						$(idDesc).show();
+						var id=$(this).attr("id");
+						var idImg="#"+id+"Img";
+						$(idImg).attr("src", "Pics/PlusFilled.png");
+					});
+					$("#liGoogle").on({
+						mouseenter: function(){
+							//$(this).css("background-size","225px 87.5px");
+							$(this).css("background-position","-8px -2px");
+						},
+						mouseleave: function(){
+							//$(this).css("background-size","300px 116.67px");
+							$(this).css("background-position","-8px 35px");
+						}
+					});
+					$("#liInsta").on({
+						mouseenter: function(){
+							//$(this).css("background-size","225px 87.5px");
+							$(this).css("background-position","-125px -2px");
+						},
+						mouseleave: function(){
+							//$(this).css("background-size","300px 116.67px");
+							$(this).css("background-position","-125px 35px");
+						}
+					});
+					$("#liFacebook").on({
+						mouseenter: function(){
+							//$(this).css("background-size","225px 87.5px");
+							$(this).css("background-position","-65px -2px");
+						},
+						mouseleave: function(){
+							//$(this).css("background-size","300px 116.67px");
+							$(this).css("background-position","-65px 35px");
+						}
+					});
+					$("#liTwitter").on({
+						mouseenter: function(){
+							//$(this).css("background-size","225px 87.5px");
+							$(this).css("background-position","-175px -2px");
+						},
+						mouseleave: function(){
+							//$(this).css("background-size","300px 116.67px");
+							$(this).css("background-position","-175px 35px");
+						}
+					});
+			});
+		</script>
+		<style>
+			@font-face {font-family: RalewayThin;src: url('raleway/Raleway-Thin.ttf');}
+			@font-face {font-family: Raleway;src: url('raleway/Raleway-Regular.ttf');}
+			@font-face {font-family: RalewayMedium;src: url('raleway/Raleway-Medium.ttf');}
+			#divTopRow{background-color:rgb(255,255,255);padding-top:1%;padding-left:0%;padding-bottom:1%;padding-right:0%;width:100%;display:inline;position:absolute;z-index:5;}
+			#divTopleftStrip{float:right;margin:0;z-index:1;padding-left:10px;padding-top:1%;display:inline;}
+			#ulTopLeftPannel{list-style-type: none;margin: 0;padding:0;}
+			.liTopLeftPannelElements{float: left;z-index:1;padding-left:12px;padding-right:12px;}
+			.liTopLeftPannelElements a{text-decoration:none; font-size: 16px; padding-right:20; color:rgb(0, 0, 0);text-transform: uppercase;line-height: 80px;letter-spacing: 1px;font-family: Raleway;-webkit-font-smoothing:antialiased;font-weight:600;}
+			#aBookNow{background-color:rgb(204, 0, 0);border-radius:10px;text-align:center;color:rgb(255,255,255);padding:15px;border:1px solid rgb(204, 0, 0);}
+			#divTopMenuButton{float:right;margin:0;z-index:1;padding-left:10px;padding-top:1%;padding-right:20px;display:none;width:250px;}
+			.liTopRighttHeaderItem {font-family:'PT Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif; opacity:.8; font-size:16px;font-stretch:condensed;color:#ffffff;padding:15px;background-color:rgb(204,0,0);border: 1px solid rgba(255, 255, 255, 0.0666667);display:none;}
+			.liTopRighttHeaderItem a{font-family:'PT Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif;font-size:16px;font-stretch:condensed;color:#ffffff;text-decoration:none;}
+			#divPageDescription{z-index:0;background-color:rgba(0,0,0,.7);}
+			#divFAQ{padding-top:8%;padding-bottom:2%;}
+			#divFAQDesc{font-size: 24px; color:rgb(255, 255, 255);font-family:RalewayThin;padding:10px;max-width:1000px;margin:auto;line-height:34px;text-align: justify;}
+			#pHeadingFAQ{font-size:64px;margin:0;margin-bottom:40px;font-weight:600;line-height:70px;}
+			#divQA{padding-top:2%;padding-bottom:3%;background-color:rgb(255,255,255);}
+			#divHeadingQA{font-size: 18px; color:rgb(0, 0, 0);font-family:Raleway;padding:10px;max-width:1000px;margin:auto;line-height:34px;}
+			.pQuestion{padding-bottom:5px;line-height:25px;font-family:RalewayMedium;}
+			.imgQuestion{whidth:25px;height:25px;float:left;}
+			.pAnswers{display:none;padding-left:35px;padding-right:35px;text-align: justify;}
+			#divPageFooter{background-color:rgb(204,0,0);font-family:Raleway;font-size:12px;color:#ffffff;opacity:.95;}
+			#navlist {position: relative;margin:0;}
+			#navlist li {display: block;float:left;margin: 0;padding: 0;list-style: none;position: relative;top: 0;margin-top:5px;margin-right:9px;width: 36px; height:36px;border-radius: 5px;background-size:225px 87.5px;}
+			#liGoogle{background: url('SOCIAL-ICONS.png') -5px 35px;}
+			#liFacebook{background: url('SOCIAL-ICONS.png') -65px 35px;}
+			#liInsta{background: url('SOCIAL-ICONS.png') -125px 35px;}
+			#liTwitter{background: url('SOCIAL-ICONS.png') -175px 35px;}
+		</style>
+	</head>
+	<body background="phoenix.jpg" style="padding:0;margin:0;background-attachment: fixed;background-repeat: no-repeat;">
+		<div id="topwrapper">
+			<div id="divTopRow">
+				<div id="divTopLogo"style="float:left;margin-left:2%;display:inline;"> 
+					<img id="imgTopLogoLong" src="Pics/goGlamrsLogo100.png"/>
+					<img id="imgTopLogoShort" src="Pics/goGlamrsText50.png" style="display:none;padding-top:10px;"/>
+				</div>
+				<div id="divTopleftStrip">
+					<ul id="ulTopLeftPannel">
+						<li class="liTopLeftPannelElements"><a href="index.php">Home </a></li>
+						<li class="liTopLeftPannelElements"><a href="AboutUs.php">about</a></li>
+						<li class="liTopLeftPannelElements"><a href="AboutUs.php">how it works</a></li>
+						<li class="liTopLeftPannelElements"><a href="Services.php">services</a></li>
+						<li class="liTopLeftPannelElements"><a href="FAQs.php">FAQ's</a></li>
+						<li class="liTopLeftPannelElements"><a href="news.php">NEWS</a></li>
+						<li class="liTopLeftPannelElements"><a href="ContactUs.php">contact us</a></li>
+						<li class="liTopLeftPannelElements"><a href="BookNow.php" id="aBookNow">book now</a></li>
+					</ul>
+				</div>
+				<div id="divTopMenuButton" align="right">
+					<div><img id="imgTopMenuButton"src="Pics/Button.png" style="clear:both;opacity:.7;padding-top:20px;"/></div>
+					<div id="divDropDownMenu"style="z-index:100;position:absolute;" >
+						<ul style="list-style-type: none;margin: 0;padding: 0;width:250px;border-collapse:collapse;text-align:left;">
+							<a href="index.php" style="text-decoration: none;"><li class="liTopRighttHeaderItem">HOME </li></a>
+							<a href="AboutUs.php" style="text-decoration: none;"><li class="liTopRighttHeaderItem">ABOUT</li></a>
+							<a href="AboutUs.php" style="text-decoration: none;"><li class="liTopRighttHeaderItem">HOW IT WORKS</li></a>
+							<a href="Services.php" style="text-decoration: none;"><li class="liTopRighttHeaderItem">SERVICES</li></a>
+							<a href="FAQs.php" style="text-decoration: none;"><li class="liTopRighttHeaderItem">FAQ</li></a>
+							<a href="news.php" style="text-decoration: none;"><li class="liTopRighttHeaderItem">NEWS</li></a>
+							<a href="ContactUs.php" style="text-decoration: none;"><li class="liTopRighttHeaderItem">CONTACT US</li></a>
+							<a href="BookNow.php" style="text-decoration: none;"><li class="liTopRighttHeaderItem">BOOK NOW</li></a>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>	
+		<div id="divPageDescription">
+			<div id="divFAQ">
+				<div id="divFAQDesc"> 
+					<p id="pHeadingFAQ">Frequently Asked Questions</p>
+				</div>
+			</div>
+			<div id="divQA">
+				<div id="divHeadingQA"> 
+					<div>
+						<div class="divQuestion" id="pQuestion1" >
+							<img id="pQuestion1Img" src="Pics/PlusNormal.png" class="imgQuestion"/>
+							<p class="pQuestion">&nbsp;&nbsp;WHY SHOULD I USE GOGLAMRS?</p>
+						</div>
+						<p id="pQuestion1Desc" class="pAnswers">
+							Hassle free service. No need to go through traffic jams and queues for something which is meant to provide relaxation to you. You get the convenience of doorstep expert beauty services along with exclusive ME time with privacy and proficiency
+						</p>
+						<div class="divQuestion" id="pQuestion2" >
+							<img id="pQuestion2Img" src="Pics/PlusNormal.png" class="imgQuestion"/>
+							<p class="pQuestion">&nbsp;&nbsp;CAN I TRUST YOUR EXPERTS?</p>
+						</div>
+						<p id="pQuestion2Desc" class="pAnswers">
+							We empanel trained and experienced beauty professionals who go through proper background checks
+						</p>
+						<div class="divQuestion" id="pQuestion3" >
+							<img id="pQuestion3Img" src="Pics/PlusNormal.png" class="imgQuestion"/>
+							<p class="pQuestion">&nbsp;&nbsp;WHAT ARE YOUR WORK TIMINGS?</p>
+						</div>
+						<p id="pQuestion3Desc" class="pAnswers">
+							goGlamrs offers services from 10 am- 8 pm, all 7 days a week. Soon, we will be starting pre 10 am and post 8 pm services
+						</p>
+						<div class="divQuestion" id="pQuestion4" >
+							<img id="pQuestion4Img" src="Pics/PlusNormal.png" class="imgQuestion"/>
+							<p class="pQuestion">&nbsp;&nbsp;HOW DO I BOOK AN APPOINTMENT?</p>
+						</div>
+						<p id="pQuestion4Desc" class="pAnswers">
+							Call or WhatsApp us at 99300 79300 between 8 am - 8 pm or book online at www.goglamrs.com.<br/>For best experience, try to give us at least 24 hours advance notice of when you would like your appointment
+
+						</p>
+						<div class="divQuestion" id="pQuestion5" >
+							<img id="pQuestion5Img" src="Pics/PlusNormal.png" class="imgQuestion"/>
+							<p class="pQuestion">&nbsp;&nbsp;HOW DO I CANCEL OR MODIFY AN APPOINTMENT?</p>
+						</div>
+						<p id="pQuestion5Desc" class="pAnswers">
+							For cancellation or modification, please contact 99300 79300. We request you to cancel or modify your booking at least 3 hours prior to your booking time
+						</p>
+						<div class="divQuestion" id="pQuestion6" >
+							<img id="pQuestion6Img" src="Pics/PlusNormal.png" class="imgQuestion"/>
+							<p class="pQuestion">&nbsp;&nbsp;WHERE IS YOUR BEAUTY AND WELLNESS CENTER?</p>
+						</div>
+						<p id="pQuestion6Desc" class="pAnswers">
+							We are a mobile beauty and wellness company and so our therapists will come to you at your home. We're currently operational in Chandigarh - however, we have plans to start servicing other cities as well.
+						</p>
+						<div class="divQuestion" id="pQuestion7" >
+							<img id="pQuestion7Img" src="Pics/PlusNormal.png" class="imgQuestion"/>
+							<p class="pQuestion">&nbsp;&nbsp;HOW FAR IN ADVANCE DO I HAVE TO BOOK? CAN I BOOK LAST MINUTE?</p>
+						</div>
+						<p id="pQuestion7Desc" class="pAnswers">
+							At the moment, you can book up to two hours prior to your preferred appointment time, subject to availability. We recommend booking as far in advance as possible.<br/>
+							In the future, we expect to offer last-minute appointment options that can be consumed in shorter timeframes
+						</p>
+						<div class="divQuestion" id="pQuestion8" >
+							<img id="pQuestion8Img" src="Pics/PlusNormal.png" class="imgQuestion"/>
+							<p class="pQuestion">&nbsp;&nbsp;WHAT PREPARATIONS DO I HAVE TO MAKE BEFORE YOUR BEAUTY EXPERT ARRIVES?</p>
+						</div>
+						<p id="pQuestion8Desc" class="pAnswers">
+							Nothing, our beauty experts will be carrying all the necessary products and equipment needed for the process. We may just need some water and you just have to sit back and relax.
+						</p>
+						<div class="divQuestion" id="pQuestion9" >
+							<img id="pQuestion9Img" src="Pics/PlusNormal.png" class="imgQuestion"/>
+							<p class="pQuestion">&nbsp;&nbsp;DOES GOGLAMRS SERVICE LARGE GROUPS FOR BACHELORETTE AND BRIDALS PARTIES?</p>
+						</div>
+						<p id="pQuestion9Desc" class="pAnswers">
+							We can accommodate large groups and also corporate accounts. Please call 99300 79300 and we will be happy to arrange
+						</p>
+						<div class="divQuestion" id="pQuestion10" >
+							<img id="pQuestion10Img" src="Pics/PlusNormal.png" class="imgQuestion"/>
+							<p class="pQuestion">&nbsp;&nbsp;WHERE CAN YOU SET UP SERVICES FOR A PAMPER PARTY?</p>
+						</div>
+						<p id="pQuestion10Desc" class="pAnswers">
+							Anywhere: indoors, outdoors, in an office, a home, a hotel banquet room, a building’s rooftop pool, a nightclub. You name it, we can go there. Call us on 99300 79300 to book a party for your loved ones
+						</p>
+						<div class="divQuestion" id="pQuestion11" >
+							<img id="pQuestion11Img" src="Pics/PlusNormal.png" class="imgQuestion"/>
+							<p class="pQuestion">&nbsp;&nbsp;YOU PROVIDE BRIDAL AND PRE-BRIDAL SERVICE, BUT WHAT ABOUT MY GUEST IN MY WEDDING?</p>
+						</div>
+						<p id="pQuestion11Desc" class="pAnswers">
+							Don’t worry, we will accommodate as many guests, just book the service for your guests along with yours. For guest we provide pamper services as well as make-up services. Call us to know more
+						</p>
+						<div class="divQuestion" id="pQuestion12" >
+							<img id="pQuestion12Img" src="Pics/PlusNormal.png" class="imgQuestion"/>
+							<p class="pQuestion">&nbsp;&nbsp;WHAT HAPPENS IF EITHER I OR YOUR THERAPIST IS RUNNING LATE?</p>
+						</div>
+						<p id="pQuestion12Desc" class="pAnswers">
+							If you are running late for an appointment, please feel free to contact us at 99300 79300. If the therapist is running late, she will call you at the number provided in your account. Timeliness is of utmost importance to us and our therapists, so rest assured that they will make every effort to be on time
+						</p>
+						<div class="divQuestion" id="pQuestion13" >
+							<img id="pQuestion13Img" src="Pics/PlusNormal.png" class="imgQuestion"/>
+							<p class="pQuestion">&nbsp;&nbsp;WHAT FORMS OF PAYMENT DO YOU ACCEPT?</p>
+						</div>
+						<p id="pQuestion13Desc" class="pAnswers">
+							At present we only accept cash on delivery, you can pay our therapists after receiving the services. We are working on integrating other payment options viz. debit & credit cards and online payments too
+						</p>
+						<div class="divQuestion" id="pQuestion14" >
+							<img id="pQuestion14Img" src="Pics/PlusNormal.png" class="imgQuestion"/>
+							<p class="pQuestion">&nbsp;&nbsp;HOW DO I BUY A GIFT CARD FROM YOU?</p>
+						</div>
+						<p id="pQuestion14Desc" class="pAnswers">
+							You can buy a gift card for any value, to buy the gift card contact us here or call us on 99300 79300. We will deliver the gift card to your desired address.
+						</p>
+						<div class="divQuestion" id="pQuestion15" >
+							<img id="pQuestion15Img" src="Pics/PlusNormal.png" class="imgQuestion"/>
+							<p class="pQuestion">&nbsp;&nbsp;WHO CAN I CONTACT IF I HAVE QUESTIONS, COMPLAINTS OR GENERAL FEEDBACK?</p>
+						</div>
+						<p id="pQuestion15Desc" class="pAnswers">
+							We love feedback, are happy to answer questions, and will try our best to work out complaints right away! 
+							<br/>You can reach us at support@goglamrs.com or Call us at 99300 79300
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="divPageFooter">
+			<div id="divCopyRightlong" style="float:left;padding:13px;padding-right:0;"> Copyright &copy; <a target="_blank" href="http://www.goglamrs.com/" style="color:rgb(255,255,255);text-decoration: none;">2015 goGlamrs. </a>	All Rights Reserved. Privacy Policy and Terms of Use</div> 
+			<div id="divCopyRightShort" style="float:left;padding:13px;padding-right:0;;display:none;"> Copyright &copy; <a target="_blank" href="http://www.goglamrs.com/" style="color:rgb(255,255,255);text-decoration: none;">2015 goGlamrs </a> </div>
+			<div style="position:relative; float: right;">
+				<ul id="navlist">
+					<a href="https://www.facebook.com/goglamrs"><li id="liFacebook"></li></a>
+					<a href="https://www.twitter.com/goglamrs"><li id="liTwitter"></li></a>
+					<a href="https://www.google.com/+goglamrsindia"><li id="liGoogle"></li></a>
+					<a href="http://www.Instagram.com/goglamrs"><li id="liInsta"></li></a>
+				</ul>
+			</div>
+		<br/><br/><br/>
+		</div>
+	</body>
+</html>
